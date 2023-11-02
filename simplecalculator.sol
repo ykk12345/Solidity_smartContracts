@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 contract calculator{
-    uint256 public result;
+    uint256 public result =0;
 
     function add(uint x, uint y) public returns (uint)
     {
