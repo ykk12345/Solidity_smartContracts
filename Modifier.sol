@@ -26,5 +26,23 @@ contract FunctionModifier{
 
     }
 
+    modifier Reentrancyattack()
+    {
+        require(!locked,"No reentrancy");
+        locked = true;
+        _;
+
+        locked = false;
+    }
+
+    function deecrement(uint _i) public Reentrancyattack{
+        x -=1;
+
+        if(_i>1)
+        {
+            deecrement(_i-1);
+        }
+    }
+
 
 }
